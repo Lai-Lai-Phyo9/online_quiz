@@ -26,23 +26,27 @@ Route::get('show','FrontendController@show')->name('show');
 
 Route::get('detail/{id}','FrontendController@detail')->name('detail');
 
-Route::get('dashboard','BackendController@dashboard')->name('dashboard');
+//middleware
+Route::middleware('auth','role:admin|quiz maker')->group(function () {
 
-Route::resource('users', 'UserController');
+	Route::get('dashboard','BackendController@dashboard')->name('dashboard');
 
-Route::resource('subjects', 'SubjectController');
+	Route::resource('users', 'UserController');
 
-Route::resource('levels', 'LevelController');
+	Route::resource('subjects', 'SubjectController');
 
-Route::resource('topics', 'TopicController');
+	Route::resource('levels', 'LevelController');
 
-Route::resource('questions', 'QuestionController');
+	Route::resource('topics', 'TopicController');
 
-Route::resource('multiquestions', 'MultiQuestionController');
+	Route::resource('questions', 'QuestionController');
 
-Route::resource('truefalsequestions', 'TrueFalseQuestionController');
+	Route::resource('multiquestions', 'MultiQuestionController');
 
-Route::resource('shortquestions', 'ShortQuestionController');
+	Route::resource('truefalsequestions', 'TrueFalseQuestionController');
+
+	Route::resource('shortquestions', 'ShortQuestionController');
+});	
 
 Auth::routes();
 

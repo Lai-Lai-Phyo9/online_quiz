@@ -79,7 +79,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user=User::find($id);//obj
+        return view('backend.users.show',compact('user'));
     }
 
     /**

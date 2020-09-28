@@ -30,7 +30,7 @@
 									<h4 class="text-secondary my-2 ml-3 pt-2" style="font-weight:normal; font-size: 25px;letter-spacing: 1px; font-style: italic;">{{$row->name}}<span class="ml-2">?</span></h4>
 									<div class="d-flex ml-4 pt-3" style="font-size: 20px;">
 										<div class="form-check mr-4">
-										  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="1" checked>
+										  <input class="form-check-input" type="radio" name="truefalse" id="exampleRadios1" value="1" checked>
 										  <label class="form-check-label" for="exampleRadios1">
 										   True
 										  </label>

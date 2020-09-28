@@ -23,7 +23,10 @@
 						<td>{{$user->id}}</td>
 						<td>{{$user->name}}</td>
 						<td class="text-center">
-							<a href="{{ route('users.edit',$user->id) }}" class="btn btn-warning mb-2" style="width: 120px;"><i class="far fa-edit p-1 btn-sm"></i>Edit</a>
+							<a href="{{ route('users.show',$user->id,) }}" class="btn btn-secondary mb-2" style="width: 120px;"><i class="far fa-eye"></i></i>Detail</a>
+							{{-- @can('edit-user') --}}
+								<a href="{{ route('users.edit',$user->id) }}" class="btn btn-warning mb-2" style="width: 120px;"><i class="far fa-edit p-1 btn-sm"></i>Edit</a>
+							{{-- @endcan	 --}}
 							<form class="d-inline-block"method="post" action="{{ route('users.destroy',$user->id) }}" onsubmit="return confirm('Are your sure?')">
 							@csrf
 							@method('DELETE')

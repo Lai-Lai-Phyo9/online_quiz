@@ -29,7 +29,7 @@
   <body>
     <!-- navbar-->
     <header class="header">
-      <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow"><a href="#" class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"><i class="fas fa-align-left"></i></a><a href="{{ route('subjects.index') }}" class="navbar-brand font-weight-bold text-uppercase text-base text-success">Online Quiz</a>
+      <nav class="navbar navbar-expand-lg px-4 py-2 bg-white shadow"><a href="#" class="sidebar-toggler text-gray-500 mr-4 mr-lg-5 lead"><i class="fas fa-align-left"></i></a><a href="{{ route('dashboard') }}" class="navbar-brand font-weight-bold text-uppercase text-base text-success">Online Quiz</a>
         <ul class="ml-auto d-flex align-items-center list-unstyled mb-0">
           <li class="nav-item">
             <form id="searchForm" class="ml-auto d-none d-lg-block">
@@ -70,7 +70,7 @@
           </li>
           <li class="nav-item dropdown ml-auto"><a id="userInfo" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src="{{asset('backendtemplate/b/img/avatar-6.jpg')}}" alt="Jason Doe" style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow"></a>
             <div aria-labelledby="userInfo" class="dropdown-menu"><a href="#" class="dropdown-item"><strong class="d-block text-uppercase headings-font-family">Phyo</strong><small>Web Developer</small></a>
-              <div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a><a href="#" class="dropdown-item">Activity log       </a>
+              <div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a><a href="#" class="dropdown-item">Activity log</a>
               <div class="dropdown-divider"></div><a href="login.html" class="dropdown-item">Logout</a>
             </div>
           </li>
@@ -81,31 +81,38 @@
       <div id="sidebar" class="sidebar py-3">
         <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN</div>
         <ul class="sidebar-menu list-unstyled">
-          <li class="sidebar-list-item"><a href="{{ route('users.index') }}" class="sidebar-link text-muted"><i class="o-home-1 mr-3 text-success"></i><span>User</span></a></li>
-          {{-- <li class="sidebar-list-item"><a href="{{ route('subjects.index') }}" class="sidebar-link text-muted"><i class="o-sales-up-1 mr-3 text-gray"></i><span>Charts</span></a></li> --}}
-          <li class="sidebar-list-item"><a href="{{ route('subjects.index') }}" class="sidebar-link text-muted"><i class="o-table-content-1 mr-3 text-success"></i><span>Subject</span></a></li>
-          <li class="sidebar-list-item"><a href="{{ route('levels.index') }}" class="sidebar-link text-muted"><i class="o-survey-1 mr-3 text-success"></i><span>Level  </span></a></li>
-          <li class="sidebar-list-item"><a href="{{ route('topics.index') }}" class="sidebar-link text-muted"><i class="o-survey-1 mr-3 text-success"></i><span>Topic  </span></a></li>
 
-          <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-success"></i><span>Questions</span></a>
-            <div id="pages" class="collapse">
-              <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
-                <li class="sidebar-list-item"><a href="{{ route('questions.index') }}" class="sidebar-link text-muted pl-lg-5">Question Type</a></li>
-                <li class="sidebar-list-item"><a href="{{ route('multiquestions.index') }}" class="sidebar-link text-muted pl-lg-5">MultiQuestion</a></li>
-                <li class="sidebar-list-item"><a href="{{ route('truefalsequestions.index') }}" class="sidebar-link text-muted pl-lg-5">TrueFalseQuestion</a></li>
-                <li class="sidebar-list-item"><a href="{{ route('shortquestions.index') }}" class="sidebar-link text-muted pl-lg-5">ShortQuestion</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="sidebar-list-item"><a href="login.html" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-warning"></i><span>Login</span></a></li>
+          @role('admin')
+            <li class="sidebar-list-item">
+              <a href="{{ route('users.index') }}" class="sidebar-link text-muted ">   <i class="o-home-1 mr-3 text-success"></i><span>User</span></a>
+            </li>
+          @endrole  
+
+          @hasanyrole('admin|quiz maker')
+            <li class="sidebar-list-item"><a href="{{ route('subjects.index') }}" class="sidebar-link text-muted"><i class="o-table-content-1 mr-3 text-success"></i><span>Subject</span></a></li>
+            <li class="sidebar-list-item"><a href="{{ route('levels.index') }}" class="sidebar-link text-muted"><i class="o-survey-1 mr-3 text-success"></i><span>Level  </span></a></li>
+            <li class="sidebar-list-item"><a href="{{ route('topics.index') }}" class="sidebar-link text-muted"><i class="o-survey-1 mr-3 text-success"></i><span>Topic </span></a></li>
+
+            <li class="sidebar-list-item"><a href="#" data-toggle="collapse" data-target="#pages" aria-expanded="false" aria-controls="pages" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-success"></i><span>Questions</span></a>
+              <div id="pages" class="collapse">
+                <ul class="sidebar-menu list-unstyled border-left border-primary border-thick">
+                  <li class="sidebar-list-item"><a href="{{ route('questions.index') }}" class="sidebar-link text-muted pl-lg-5">Question Type</a></li>
+                  <li class="sidebar-list-item"><a href="{{ route('multiquestions.index') }}" class="sidebar-link text-muted pl-lg-5">MultiQuestion</a></li>
+                  <li class="sidebar-list-item"><a href="{{ route('truefalsequestions.index') }}" class="sidebar-link text-muted pl-lg-5">TrueFalseQuestion</a></li>
+                  <li class="sidebar-list-item"><a href="{{ route('shortquestions.index') }}" class="sidebar-link text-muted pl-lg-5">ShortQuestion</a></li>
+                </ul>
+              </div>
+            </li>
+          @endhasanyrole
+          <li class="sidebar-list-item"><a href="{{ route('login') }}" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-warning"></i><span>Login</span></a></li>
         </ul>
-        <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">EXTRAS</div>
-        <ul class="sidebar-menu list-unstyled">
+        {{-- <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">EXTRAS</div> --}}
+{{--         <ul class="sidebar-menu list-unstyled">
               <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-info text-gray"></i><span>Demo</span></a></li>
               <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-danger text-gray"></i><span>Demo</span></a></li>
               <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-paperwork-1 mr-3 text-gray"></i><span>Demo</span></a></li>
               <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Demo</span></a></li>
-        </ul>
+        </ul> --}}
       </div>
       <div class="page-holder w-100 d-flex flex-wrap">
         @yield('content')
@@ -418,7 +425,7 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-6 text-center text-md-left text-primary">
-                <p class="mb-2 mb-md-0">Your company &copy; 2018-2020</p>
+                <p class="mb-2 mb-md-0"> Education Center &copy; 2018-2020</p>
               </div>
               <div class="col-md-6 text-center text-md-right text-gray-400">
                 <p class="mb-0">Design by <a href="https://bootstrapious.com/admin-templates" class="external text-gray-400">Bootstrapious</a></p>
