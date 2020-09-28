@@ -28,23 +28,27 @@ class FrontendController extends Controller
       public function detail($id)
       {
          $question=Question::find($id);
-         // if($id==2){
-         //    // dd('this is two');
-         //    $data = TrueFalseQuestion::all();
-         //    // dd($data);
-         // }else if($id==5){
-         //    $data = ShortQuestion::all();
-         //    // dd($data);
-         // }
-         // else{
-         //    $data = MultiQuestion::all();
-         //    // dd($data);
-         // }
+         $questiontype = $question->questiontype;
+         // dd($questiontype);
+         if($questiontype=="truefalse"){
+
+            $detail = TrueFalseQuestion::where('question_id',$id)->get();
+            // dd($detail);
+         }else if($questiontype=="short"){
+
+            $detail = ShortQuestion::where('question_id',$id)->get();
+            // dd($detail);
+         }
+         else if($questiontype=="multichoice"){
+            $detail = MultiQuestion::where('question_id',$id)->get();
+            // dd($detail);
+         }
+         return view('frontend.detail',compact('detail','questiontype'));
          // dd($question);
-         $tfdata=DB::table('true_false_questions')->whereIn('question_id',$question)->get();
-          $multidata=DB::table('multi_questions')->whereIn('question_id',$question)->get();
-           $shortdata=DB::table('short_questions')->whereIn('question_id',$question)->get();
-         return view('frontend.detail',compact('tfdata','multidata','shortdata'));
+         // $tfdata=DB::table('true_false_questions')->whereIn('question_id',$question)->get();
+         //  $multidata=DB::table('multi_questions')->whereIn('question_id',$question)->get();
+         //   $shortdata=DB::table('short_questions')->whereIn('question_id',$question)->get();
+         // return view('frontend.detail',compact('tfdata','multidata','shortdata'));
       }
       //MultiQuestionController show
       // public function show()
