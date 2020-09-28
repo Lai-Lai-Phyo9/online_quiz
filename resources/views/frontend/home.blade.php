@@ -39,7 +39,9 @@
 									<h5 class="text-left ml-2 mt-2">{{$question->questiontype}}</h5>
 									<p class="bg-secondary rounded px-2 text-light"style="position: absolute;top:50%;left: 5px;">15Q</p>
 									<p class="px-2 bg-secondary rounded text-light" style="position: absolute; top: 50%;right: 3px;">11k plays</p>
-									<a href="{{ route('detail',$question->id) }}" class="btn btn-primary btn-sm click" style="position: absolute;width: 100%;height: 100%;background: rgba(0,0,0,.04);border:none;" type="submit"></a>
+									{{-- @auth --}}
+										<a href="{{ route('detail',$question->id) }}" class="btn btn-primary btn-sm click" style="position: absolute;width: 100%;height: 100%;background: rgba(0,0,0,.04);border:none;" type="submit"></a>
+									{{-- @endauth	 --}}
 							</div>
 						</div>
 						@endforeach

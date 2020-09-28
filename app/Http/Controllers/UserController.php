@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:user')->except('logout');
+    }
     /**
      * Display a listing of the resource.
      *

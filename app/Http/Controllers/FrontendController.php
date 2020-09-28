@@ -11,19 +11,19 @@ use Illuminate\Http\Request;
 use DB;
 class FrontendController extends Controller
 {
-    public function index()
+    public function _construct($value='')
     {
-       return view('frontend.login');
+        $this->middleware('auth')->only('getAnswers');
     }
 		public function home()
 		{
-         $data = DB::table('questions')
+      $data = DB::table('questions')
                ->join('topics','topics.id','=','questions.topic_id')
                ->select('topics.*','questions.questiontype','questions.id')
                ->get();
 			return view('frontend.home',compact('data'));
 		}
-    //TopicController -show
+    //Tshow
     public function detail($id)
     {
        $question=Question::find($id);
@@ -43,18 +43,13 @@ class FrontendController extends Controller
           // dd($detail);
        }
        return view('frontend.detail',compact('detail','questiontype'));
-       // dd($question);
-       // $tfdata=DB::table('true_false_questions')->whereIn('question_id',$question)->get();
-       //  $multidata=DB::table('multi_questions')->whereIn('question_id',$question)->get();
-       //   $shortdata=DB::table('short_questions')->whereIn('question_id',$question)->get();
-       // return view('frontend.detail',compact('tfdata','multidata','shortdata'));
     }
-    //MultiQuestionController show
-    // public function show()
-    // {
-    //    $multiquestions = MultiQuestion::orderBy('name', 'desc')
-    //             ->take(3)
-    //             ->get();
-    //    return view('frontend.show',compact('multiquestions'));
-    // }
+
+    public function getAnswers(Request $request)
+    {
+        dd($request);
+        // $arr = json_decode($request->data);
+
+    }
+
 }

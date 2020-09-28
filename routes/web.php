@@ -27,7 +27,6 @@ Route::get('show','FrontendController@show')->name('show');
 Route::get('detail/{id}','FrontendController@detail')->name('detail');
 
 //middleware
-Route::middleware('auth','role:admin|quiz maker')->group(function () {
 
 	Route::get('dashboard','BackendController@dashboard')->name('dashboard');
 
@@ -46,8 +45,8 @@ Route::middleware('auth','role:admin|quiz maker')->group(function () {
 	Route::resource('truefalsequestions', 'TrueFalseQuestionController');
 
 	Route::resource('shortquestions', 'ShortQuestionController');
-});	
+
+Route::post('answers', 'FrontendController@getAnswers')->name('answers');
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
