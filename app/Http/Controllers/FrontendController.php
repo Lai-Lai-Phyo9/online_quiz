@@ -9,6 +9,7 @@ use App\TrueFalseQuestion;
 use App\ShortQuestion;
 use Illuminate\Http\Request;
 use DB;
+use App\User;
 class FrontendController extends Controller
 {
     public function _construct($value='')
@@ -45,9 +46,9 @@ class FrontendController extends Controller
        return view('frontend.detail',compact('detail','questiontype'));
     }
 
-    public function getAnswers(Request $request)
+    public function getAnswers(Request $request, $id)
     {
-        dd($request);
+         $data = $request->all();
         // $arr = json_decode($request->data);
 
     }
