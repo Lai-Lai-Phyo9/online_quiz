@@ -84,7 +84,7 @@ class RegisterController extends Controller
         {
             $this->redirectTo='/dashboard';
         }
-        return $user;
-        // return redirect('/login');  
+        // return $user;
+        return redirect('/login');  
     }
 }

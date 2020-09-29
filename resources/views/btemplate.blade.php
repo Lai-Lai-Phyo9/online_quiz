@@ -68,10 +68,19 @@
               <div class="dropdown-divider"></div><a href="#" class="dropdown-item text-center"><small class="font-weight-bold headings-font-family text-uppercase">View all notifications</small></a>
             </div>
           </li>
-          <li class="nav-item dropdown ml-auto"><a id="userInfo" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src="{{asset('backendtemplate/b/img/avatar-6.jpg')}}" alt="Jason Doe" style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow"></a>
-            <div aria-labelledby="userInfo" class="dropdown-menu"><a href="#" class="dropdown-item"><strong class="d-block text-uppercase headings-font-family">Phyo</strong><small>Web Developer</small></a>
-              <div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a><a href="#" class="dropdown-item">Activity log</a>
-              <div class="dropdown-divider"></div><a href="login.html" class="dropdown-item">Logout</a>
+          <li class="nav-item dropdown ml-auto"><a id="userInfo" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src="{{ asset(Auth::user()->image)}}" alt="Jason Doe" style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow"></a>
+            <div aria-labelledby="userInfo" class="dropdown-menu">
+              <a href="#" class="dropdown-item">
+                <strong class="d-block text-uppercase headings-font-family">{{ Auth::user()->name }}</strong>
+                  <small>{{ Auth::user()->getRoleNames()->first() }}</small>
+              </a>
+              {{-- <div class="dropdown-divider"></div><a href="#" class="dropdown-item">Settings</a><a href="#" class="dropdown-item">Activity log</a> --}}
+              <div class="dropdown-divider"></div>           
+               <a href="{{ route('logout')}}" class="dropdown-item" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">Logout</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
             </div>
           </li>
         </ul>
@@ -104,6 +113,7 @@
               </div>
             </li>
           @endhasanyrole
+
           <li class="sidebar-list-item"><a href="{{ route('login') }}" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-warning"></i><span>Login</span></a></li>
         </ul>
         {{-- <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">EXTRAS</div> --}}
