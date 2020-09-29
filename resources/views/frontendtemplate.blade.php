@@ -118,7 +118,19 @@
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact</a>
+                  <a class="nav-link" href="{{ route('login')}}">Login</a>
+                  {{-- <a href="{{ route('logout')}}" class="dropdown-item">Logout</a> --}}
+                  <form id="logout-form" action="{{ route('login') }}" method="POST" >
+                      @csrf
+                  </form>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('logout')}}"  onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">Logout</a>
+                  {{-- <a href="{{ route('logout')}}" class="dropdown-item">Logout</a> --}}
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" >
+                      @csrf
+                  </form>
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link search" id="search">
@@ -711,6 +723,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
     <script src="{{asset('frontendtemplate/js/gmaps.min.js')}}"></script>
     <script src="{{asset('frontendtemplate/js/theme.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('frontendtemplate/js/custom.js') }}">  
+</script>
     @yield('script')
   </body>
 </html>
