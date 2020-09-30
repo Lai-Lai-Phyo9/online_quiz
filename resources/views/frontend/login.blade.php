@@ -33,6 +33,11 @@
                         <label class="form-check-label" for="exampleCheck1">Check me out</label>
                       </div>
                       <button type="submit" class="btn btn-primary">Login</button>
+                      <a class="nav-link" href="{{ route('login')}}">Login</a>
+                  {{-- <a href="{{ route('logout')}}" class="dropdown-item">Logout</a> --}}
+                  <form id="logout-form" action="{{ route('login') }}" method="POST" >
+                      @csrf
+                  </form>
                     </form>
                   <hr>
                   <div class="text-center">

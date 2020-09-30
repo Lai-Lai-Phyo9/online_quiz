@@ -12,6 +12,7 @@
 @section('title','topic Detail')
 	@section('content')
 		<div class="container my-5">
+			<input type="hidden" name="" data-id="{{$userId}}" id="userid">
 			<div class="row mb-3">
 				@php
 					{{ $i=1;}}
@@ -124,7 +125,7 @@
 					@endforeach
 				@endif	
 			</div>
-			<button id="test" class="btn btn-lg btn-success">click</button>
+			<button id="savebtn" class="btn btn-lg btn-success">click</button>
 		</div>
 		@endsection
 @section('script')
@@ -133,14 +134,16 @@
 			$('.test').click(function(event) {
 				/* Act on the event */
 				// alert('ok');
+				var userid = $('#userid').data('id');
 				var name = $(this).data('name');
 				var qid = $(this).data('qid');
-				var userdata = $(this).val();
+				var userinput = $(this).val();
 				var answer = $(this).data('answer');
 				// alert(name);
 				datagp={
+					userId :userid,
 					qid : qid,
-					userdataid : userdata,
+					userinput : userinput,
 					answerid : answer,
 					name:name
 				}
@@ -157,7 +160,7 @@
            $.each(qArr,function(i, v) {
 							if (name==v.name) {
 								status=true;
-								v.userdataid = userdata;
+								v.userinput = userinput;
 							}	
 						});
 						if(!status){
@@ -165,6 +168,19 @@
 						}  
          localStorage.setItem('quizdata',JSON.stringify(qArr));			
        });
+			$('#savebtn').click(function(event) {
+				/* Act on the event */
+				let qStr = localStorage.getItem('quizdata');
+				$.ajaxSetup({ 
+					headers: {'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')}
+
+				});
+				$.post('/storeanswer',{data:qStr},function(response){
+
+				});
+
+			});
 		});
+
 	</script>
 @endsection

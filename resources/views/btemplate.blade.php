@@ -86,6 +86,7 @@
         </ul>
       </nav>
     </header>
+    <!--sidebar-->
     <div class="d-flex align-items-stretch">
       <div id="sidebar" class="sidebar py-3">
         <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN</div>
@@ -97,7 +98,7 @@
             </li>
           @endrole  
 
-          @hasanyrole('admin|quiz maker')
+          @hasanyrole('quiz maker')
             <li class="sidebar-list-item"><a href="{{ route('subjects.index') }}" class="sidebar-link text-muted"><i class="o-table-content-1 mr-3 text-success"></i><span>Subject</span></a></li>
             <li class="sidebar-list-item"><a href="{{ route('levels.index') }}" class="sidebar-link text-muted"><i class="o-survey-1 mr-3 text-success"></i><span>Level  </span></a></li>
             <li class="sidebar-list-item"><a href="{{ route('topics.index') }}" class="sidebar-link text-muted"><i class="o-survey-1 mr-3 text-success"></i><span>Topic </span></a></li>
@@ -124,6 +125,7 @@
               <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-wireframe-1 mr-3 text-gray"></i><span>Demo</span></a></li>
         </ul> --}}
       </div>
+    <!--main content-->  
       <div class="page-holder w-100 d-flex flex-wrap">
         @yield('content')
         <!-- <div class="container-fluid px-xl-5">

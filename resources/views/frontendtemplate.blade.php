@@ -7,6 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <meta name="csrf-token" content="{{csrf_token()}}">
     <link rel="icon" href="{{asset('frontendtemplate/img/favicon.png')}}" type="image/png" />
   <title>Online Quiz @yield('title')</title>
     <!-- Bootstrap CSS -->
