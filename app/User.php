@@ -40,20 +40,20 @@ class User extends Authenticatable
 
     public function multiquestions()
     {
-        return $this->belongsToMany('App\MultiQuestion')
+        return $this->belongsToMany('App\MultiQuestion','multi_user')
                     ->withPivot('answer','mark')
                     ->withTimestamps();
     }
 
     public function truefalsequestions()
     {
-        return $this->belongsToMany('App\TrueFalseQuestion')
+        return $this->belongsToMany('App\TrueFalseQuestion','true_user')
                     ->withPivot('answer','mark')
                     ->withTimestamps();
     }
     public function shortquestions()
     {
-        return $this->belongsToMany('App\ShortQuestion')
+        return $this->belongsToMany('App\ShortQuestion','short_user')
                     ->withPivot('answer','mark')
                     ->withTimestamps();
     }

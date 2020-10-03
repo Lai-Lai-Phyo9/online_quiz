@@ -15,7 +15,7 @@ class ShortQuestion extends Model
     }
         public function users()
     {
-    	return $this->belongsToMany('App\User')
+    	return $this->belongsToMany('App\User','short_user')
     				->withPivot('answer','mark')
     				->withTimestamps();
     }

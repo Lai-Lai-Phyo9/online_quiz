@@ -124,6 +124,8 @@ class MultiQuestionController extends Controller
 
         //Redirect
         return redirect()->route('multiquestions.index'); 
+
+        
     }
 
     /**

@@ -15,7 +15,7 @@ class MultiQuestion extends Model
     }
     public function users()
     {
-    	return $this->belongsToMany('App\User')
+    	return $this->belongsToMany('App\User','multi_user')
     				->withPivot('answer','mark')
     				->withTimestamps();
     }

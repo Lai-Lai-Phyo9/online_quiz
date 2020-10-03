@@ -92,13 +92,14 @@
         <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN</div>
         <ul class="sidebar-menu list-unstyled">
 
-          @role('admin')
+            {{-- @hasrole('admin') --}}
             <li class="sidebar-list-item">
-              <a href="{{ route('users.index') }}" class="sidebar-link text-muted ">   <i class="o-home-1 mr-3 text-success"></i><span>User</span></a>
+              <a href="{{ route('users.index') }}" class="sidebar-link text-muted ">
+                <i class="o-home-1 mr-3 text-success"></i><span>User</span></a>
             </li>
-          @endrole  
+           {{-- @endhasrole  --}}
 
-          @hasanyrole('quiz maker')
+          {{-- @hasanyrole('admin|quiz maker') --}}
             <li class="sidebar-list-item"><a href="{{ route('subjects.index') }}" class="sidebar-link text-muted"><i class="o-table-content-1 mr-3 text-success"></i><span>Subject</span></a></li>
             <li class="sidebar-list-item"><a href="{{ route('levels.index') }}" class="sidebar-link text-muted"><i class="o-survey-1 mr-3 text-success"></i><span>Level  </span></a></li>
             <li class="sidebar-list-item"><a href="{{ route('topics.index') }}" class="sidebar-link text-muted"><i class="o-survey-1 mr-3 text-success"></i><span>Topic </span></a></li>
@@ -113,9 +114,9 @@
                 </ul>
               </div>
             </li>
-          @endhasanyrole
+          {{-- @endhasanyrole --}}
 
-          <li class="sidebar-list-item"><a href="{{ route('login') }}" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-warning"></i><span>Login</span></a></li>
+          {{-- <li class="sidebar-list-item"><a href="{{ route('login') }}" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-warning"></i><span>Login</span></a></li> --}}
         </ul>
         {{-- <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">EXTRAS</div> --}}
 {{--         <ul class="sidebar-menu list-unstyled">

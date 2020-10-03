@@ -22,10 +22,10 @@
 					    	<td>University Name</td>
 					    	<td>{{$user->university_school}}</td>
 					    </tr>
-					    <tr>
+{{-- 					    <tr>
 					    	<td>Work Name</td>
 					    	<td>{{$user->work_organization}}</td>
-					    </tr>
+					    </tr> --}}
 					  </tbody>
 					</table>
 			</div>

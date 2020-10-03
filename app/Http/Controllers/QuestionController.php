@@ -75,7 +75,11 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $questions=Question::all();
+        $topics=Topic::all();
+        $question=Question::find($id);
+        // dd($subcategory);
+        return view ('backend.questions.edit',compact('questions','question','topics'));
     }
 
     /**

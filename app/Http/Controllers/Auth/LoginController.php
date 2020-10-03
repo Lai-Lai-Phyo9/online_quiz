@@ -48,7 +48,11 @@ class LoginController extends Controller
         {
             $this->redirectTo='/';
         }
-        else if($roles[0] =='admin' || $roles[0] =='quiz maker')
+        else if($roles[0] =='quiz maker')
+        {
+            $this->redirectTo='/subjects';
+        }
+        else if($roles[0] =='admin')
         {
             $this->redirectTo='/dashboard';
         }

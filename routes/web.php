@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','FrontendController@home')->name('home');
 
-Route::get('show','FrontendController@show')->name('show');
+Route::get('detail/show','FrontendController@show')->name('show');
 
 Route::get('detail/{id}','FrontendController@detail')->name('detail');
 

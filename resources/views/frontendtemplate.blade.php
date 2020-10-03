@@ -73,7 +73,7 @@
 {{--                 <li class="nav-item">
                   <a class="nav-link" href="{{ route('detail',$topic->id) }}">About</a>
                 </li> --}}
-                <li class="nav-item submenu dropdown">
+{{--                 <li class="nav-item submenu dropdown">
                   <a
                     href="#"
                     class="nav-link dropdown-toggle"
@@ -96,8 +96,8 @@
                       <a class="nav-link" href="elements.html">Elements</a>
                     </li>
                   </ul>
-                </li>
-                <li class="nav-item submenu dropdown">
+                </li> --}}
+{{--                 <li class="nav-item submenu dropdown">
                   <a
                     href="#"
                     class="nav-link dropdown-toggle"
@@ -117,27 +117,33 @@
                       >
                     </li>
                   </ul>
-                </li>
+                </li> --}}
+              @guest
                 <li class="nav-item">
                   <a class="nav-link" href="{{ route('login')}}">Login</a>
-                  {{-- <a href="{{ route('logout')}}" class="dropdown-item">Logout</a> --}}
-                  <form id="logout-form" action="{{ route('login') }}" method="POST" >
-                      @csrf
-                  </form>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('logout')}}"  onclick="event.preventDefault();
-                      document.getElementById('logout-form').submit();">Logout</a>
-                  {{-- <a href="{{ route('logout')}}" class="dropdown-item">Logout</a> --}}
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" >
-                      @csrf
-                  </form>
+                    <a class="nav-link" href="{{route('register')}}">Register</a>
                 </li>
-                <li class="nav-item">
+              @else
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{Auth::user()->name}}
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item text-capitalize" href="{{'show',Auth::user()->id}}">Profile</a>
+                    <a class="dropdown-item" href="javascript:void(0)" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                    <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
+                    @csrf
+                    </form>
+                  </div>
+                </li>
+              @endif
+{{--                 <li class="nav-item">
                   <a href="#" class="nav-link search" id="search">
                     <i class="ti-search"></i>
                   </a>
-                </li>
+                </li> --}}
               </ul>
             </div>
           </div>
@@ -173,7 +179,7 @@
 
     <!--================ Start Feature Area =================-->
     <section class="feature_area section_gap_top">
-      <div class="container">
+      <div class="container hi">
         <div class="row justify-content-center">
           <div class="col-lg-5 hello">
             <div class="main_title">

@@ -70,7 +70,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'image' => 'img/1.jpg',
             'university_school' => $data['university_school'],
-            'work_organization' => $data['work_organization'],
+            'work_organization' => 'work',
         ]);
         
         $user->assignRole($data['role']);
@@ -84,7 +84,8 @@ class RegisterController extends Controller
         {
             $this->redirectTo='/dashboard';
         }
-        // return $user;
-        return redirect('/login');  
+        return $user;
+        return $this->registered($request, $user)?: redirect($this->redirectPath('/dashboard'));
+        // return redirect('/login');  
     }
 }

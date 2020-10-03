@@ -11,7 +11,7 @@
               <div class="flex-grow-1 d-flex align-items-center">
                 <div class="dot mr-3 bg-violet"></div>
                 <div class="text">
-                  <h6 class="mb-0">Data consumed</h6><span class="text-gray">145,14 GB</span>
+                  <h6 class="mb-0">Quizz Maker</h6><span class="text-gray">12</span>
                 </div>
               </div>
               <div class="icon text-white bg-violet"><i class="fas fa-server"></i></div>

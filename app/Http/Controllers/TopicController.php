@@ -97,9 +97,15 @@ class TopicController extends Controller
     public function edit($id)
     {
         $topics =Topic::all();
+        $subjects=Subject::all();
+        // dd($subjects);
+        $users=User::all();
+        // dd($users);
+        $levels=Level::all();
+        // dd($levels);
         $topic=Topic::find($id);
         // dd($subcategory);
-        return view ('backend.topics.edit',compact('topics','topic'));
+        return view ('backend.topics.edit',compact('topics','topic','users','levels','subjects'));
     }
 
     /**
@@ -115,6 +121,9 @@ class TopicController extends Controller
         $request->validate([
             'name' => 'required',
             'photo' => 'nullable',
+            'user' => 'required',
+            'subject' => 'required',
+            'level' => 'required',
 
         ]);
 
@@ -134,6 +143,9 @@ class TopicController extends Controller
 
         //Update Data
         $topic=Topic::find($id);
+        $topic->user_id=$request->user_id;
+        $topic->subject_id=$request->subject_id;
+        $topic->level_id=$request->level_id;
         $topic->name=$request->name;
         $topic->photo=$myfile;
         $topic->save();
