@@ -24,13 +24,12 @@ Route::get('/','FrontendController@home')->name('home');
 
 Route::get('detail/show','FrontendController@show')->name('show');
 
+Route::get('show','FrontendController@show')->name('show');
+
 Route::get('detail/{id}','FrontendController@detail')->name('detail');
 
 //middleware
-// Route::group(['middleware' => ['auth','role:admin|quiz maker']], function () {
-	Route::get('dashboard','BackendController@dashboard')->name('dashboard');
-
-	Route::resource('users', 'UserController');
+Route::group(['middleware' => ['auth','role:admin|quiz maker']], function () {
 
 	Route::resource('subjects', 'SubjectController');
 
@@ -46,7 +45,15 @@ Route::get('detail/{id}','FrontendController@detail')->name('detail');
 
 	Route::resource('shortquestions', 'ShortQuestionController');
 	
-// });
+});
+//middleware
+Route::group(['middleware' => ['auth','role:admin']], function () {
+
+	Route::get('dashboard','BackendController@dashboard')->name('dashboard');
+	
+	Route::resource('users', 'UserController');
+	
+});
 
 Route::post('storeanswer', 'FrontendController@storeanswer')->name('storeanswer');
 

@@ -7,6 +7,12 @@
 	.home_banner_area{
 	display: none;
 	}
+	.form-check-label{
+		transition: .5s;
+	}
+	.form-check-label:hover{
+		color: #015DC8;
+	}
 </style>
 @endsection
 @section('title','topic Detail')
@@ -33,7 +39,7 @@
 									<img src="{{ asset($row->photo) }}" style="width: 300px; height: 200px;">
 								</div>
 								<div class="question-title pt-5">
-									<h4 class="text-secondary my-2 ml-3 pt-2" style="font-weight:normal; font-size: 25px;letter-spacing: 1px; font-style: italic;">{{$row->name}}<span class="ml-2">?</span></h4>
+									<h4 class="text-dark my-2 ml-3 pt-2" style="font-weight:normal; font-size: 30px;letter-spacing: 1px; font-style: italic;">{{$row->name}}<span class="ml-2"></span></h4>
 									<div class="d-flex ml-4 pt-3" style="font-size: 20px;">
 										<div class="form-check mr-4">
 										  <input class="form-check-input test" type="radio" name="name{{$count}}" id="id{{$count}}" value="1" data-answer="{{$row->answer}}" data-qid="{{$row->id}}" data-name="name{{$count}}" data-qtype="{{$row->question->questiontype}}">
@@ -91,8 +97,8 @@
 								<div class="img">
 									<img src="{{ asset($row->photo) }}" style="width: 300px; height: 200px;">
 								</div>
-								<div class="question-title pt-5">
-									<h4 class="text-secondary my-2 ml-3 pt-2" style="font-weight:normal; font-size: 25px;letter-spacing: 1px; font-style: italic;">{{$row->name}}<span class="ml-2">?</span></h4>
+								<div class="question-title">
+									<h4 class="text-dark my-2 ml-3 " style="font-weight:normal; font-size: 30px;letter-spacing: 1px; font-style: italic;">{{$row->name}}</h4>
 									<div class="ml-3" style="font-size: 20px;">
 										<div class="form-check mr-4 mb-2">
 										  <input class="form-check-input test" type="radio" name="name{{$count}}" id="{{$row->choice1}}a" value="1"  data-answer="{{$row->answer}}" data-qid="{{$row->id}}" data-name="name{{$count}}" data-qtype="{{$row->question->questiontype}}">

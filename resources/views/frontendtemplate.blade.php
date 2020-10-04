@@ -47,7 +47,7 @@
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <a class="navbar-brand logo_h" href="index.html"
-              ><img src="{{asset('frontendtemplate/img/logo.png')}}" alt=""
+              ><img src="{{asset('frontendtemplate/img/logo2.png')}}" alt=""
             /></a>
             <button
               class="navbar-toggler"
@@ -518,7 +518,7 @@
             <div class="testi_item">
               <div class="row">
                 <div class="col-lg-4 col-md-6">
-                  <img src="img/testimonials/t1.jpg" alt="" />
+                  <img src="{{asset('frontendtemplate/img/testimonials/t1.jpg')}}" alt="" />
                 </div>
                 <div class="col-lg-8">
                   <div class="testi_text">
@@ -535,7 +535,7 @@
             <div class="testi_item">
               <div class="row">
                 <div class="col-lg-4 col-md-6">
-                  <img src="img/testimonials/t2.jpg" alt="" />
+                  <img src="{{asset('frontendtemplate/img/testimonials/t2.jpg')}}" alt="" />
                 </div>
                 <div class="col-lg-8">
                   <div class="testi_text">
@@ -552,7 +552,7 @@
             <div class="testi_item">
               <div class="row">
                 <div class="col-lg-4 col-md-6">
-                  <img src="img/testimonials/t1.jpg" alt="" />
+                  <img src="{{asset('frontendtemplate/img/testimonials/t1.jpg')}}" alt="" />
                 </div>
                 <div class="col-lg-8">
                   <div class="testi_text">
@@ -569,7 +569,7 @@
             <div class="testi_item">
               <div class="row">
                 <div class="col-lg-4 col-md-6">
-                  <img src="img/testimonials/t2.jpg" alt="" />
+                  <img src="{{asset('frontendtemplate/img/testimonials/t2.jpg')}}" alt="" />
                 </div>
                 <div class="col-lg-8">
                   <div class="testi_text">
@@ -586,7 +586,7 @@
             <div class="testi_item">
               <div class="row">
                 <div class="col-lg-4 col-md-6">
-                  <img src="img/testimonials/t1.jpg" alt="" />
+                  <img src="{{asset('frontendtemplate/img/testimonials/t1.jpg')}}" alt="" />
                 </div>
                 <div class="col-lg-8">
                   <div class="testi_text">
@@ -603,7 +603,7 @@
             <div class="testi_item">
               <div class="row">
                 <div class="col-lg-4 col-md-6">
-                  <img src="img/testimonials/t2.jpg" alt="" />
+                  <img src="{{asset('frontendtemplate/img/testimonials/t2.jpg')}}" alt="" />
                 </div>
                 <div class="col-lg-8">
                   <div class="testi_text">
@@ -702,7 +702,7 @@
         <div class="row footer-bottom d-flex justify-content-between">
           <p class="col-lg-8 col-sm-12 footer-text m-0 text-white">
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </p>
           <div class="col-lg-4 col-sm-12 footer-social">

@@ -17,8 +17,10 @@ class FrontendController extends Controller
 	{
     $data = DB::table('questions')
              ->join('topics','topics.id','=','questions.topic_id')
-             ->select('topics.*','questions.questiontype','questions.id')
+             ->join('levels','topics.level_id','=','levels.id')
+             ->select('topics.*','questions.questiontype','questions.id','levels.name as levelname')
              ->get();
+             // dd($data);
 		return view('frontend.home',compact('data'));
 	}
   //show question detail
@@ -51,12 +53,13 @@ class FrontendController extends Controller
     // dd($carts);
     $user = User::find(Auth::id());
     foreach ($carts as $row) {
-        if ($row->qtype="truefalse") {
+        // dd($row);
+        if ($row->qtype=="truefalse") {
             // this is truefalse
             $mark =($row->answerid==$row->userinput)?1:0;
             $user->truefalsequestions()->attach($row->qid,['answer'=>$row->userinput,'mark'=>$mark]);
         }
-        if ($row->qtype="multichoice") {
+        else if ($row->qtype=="multichoice") {
             // this is mutlichoice
             $mark =($row->answerid==$row->userinput)?1:0;
             $user->multiquestions()->attach($row->qid,['answer'=>$row->userinput,'mark'=>$mark]);
@@ -65,32 +68,19 @@ class FrontendController extends Controller
     }
   }
   public function show(){
-      $user = User::find(Auth::id());
-      // dd(getType($user->updated_at));
-      $count=0;
-      // $d=0;
-      // dd($user->multiquestions);
-      foreach($user->multiquestions as $row){
-          $date = $row->pivot->created_at->format('Y/m/d');
-          $time[$count++] = $row->pivot->created_at;
-      }
-      // dd($time);
-      // dd($date);
-      $dateList  = collect($date)->unique();
-      $timeList  = collect($time);
-      // dd($timeList);
-      // dd($dateList);
-      // foreach ($dateList as $row) {
-      
-      //       foreach ($user->multiquestions as $value) {
-      //             if($row == $value->pivot->created_at->format('m/d/Y')){
-      //               dd('haha');
-      //             }else{
-      //               dd($date);
-      //             }
-      //       }
+        $users = DB::table('multi_user')
+                     ->select(DB::raw('sum(mark) as mark,count(mark) as count,created_at'))
+                     ->where('user_id', '=', Auth::id())
+                     ->groupBy('created_at')
+                     ->get(); 
+         $tfusers = DB::table('true_user')
+                     ->select(DB::raw('sum(mark) as mark,count(mark) as count,created_at'))
+                     ->where('user_id', '=', Auth::id())
+                     ->groupBy('created_at')
+                     ->get();    
+   
 
-      // }
-      return view('frontend.show',compact('user','dateList','timeList'));
+        // dd($users);
+      return view('frontend.show',compact('users','tfusers'));
   }
 }

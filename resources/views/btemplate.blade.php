@@ -68,7 +68,9 @@
               <div class="dropdown-divider"></div><a href="#" class="dropdown-item text-center"><small class="font-weight-bold headings-font-family text-uppercase">View all notifications</small></a>
             </div>
           </li>
-          <li class="nav-item dropdown ml-auto"><a id="userInfo" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><img src="{{ asset(Auth::user()->image)}}" alt="Jason Doe" style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow"></a>
+          <li class="nav-item dropdown ml-auto">
+            <a id="userInfo" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">
+            <img src="{{ asset(Auth::user()->image)}}" alt="{{ Auth::user()->name }}" style="max-width: 2.5rem;" class="img-fluid rounded-circle shadow"></a>
             <div aria-labelledby="userInfo" class="dropdown-menu">
               <a href="#" class="dropdown-item">
                 <strong class="d-block text-uppercase headings-font-family">{{ Auth::user()->name }}</strong>
@@ -83,6 +85,18 @@
             </form>
             </div>
           </li>
+{{--           <li class="nav-item dropdown ml-auto">
+            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{Auth::user()->name}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item text-capitalize" href="{{'show',Auth::user()->id}}">Profile</a>
+              <a class="dropdown-item" href="javascript:void(0)" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+              <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
+              @csrf
+              </form>
+            </div>
+          </li> --}}
         </ul>
       </nav>
     </header>
@@ -92,12 +106,12 @@
         <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">MAIN</div>
         <ul class="sidebar-menu list-unstyled">
 
-            {{-- @hasrole('admin') --}}
+            @role('admin')
             <li class="sidebar-list-item">
               <a href="{{ route('users.index') }}" class="sidebar-link text-muted ">
                 <i class="o-home-1 mr-3 text-success"></i><span>User</span></a>
             </li>
-           {{-- @endhasrole  --}}
+           @endrole 
 
           {{-- @hasanyrole('admin|quiz maker') --}}
             <li class="sidebar-list-item"><a href="{{ route('subjects.index') }}" class="sidebar-link text-muted"><i class="o-table-content-1 mr-3 text-success"></i><span>Subject</span></a></li>

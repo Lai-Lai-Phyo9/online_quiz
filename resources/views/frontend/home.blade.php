@@ -35,21 +35,49 @@
 	        </div>
 			<div class="container my-5" id="hello">
 				<div class="row">
-					@foreach ($data as $question)
-					<div class="col-12 col-md-3 mb-5">
-						<div class="card rounded p-0 pb-3" style="position: relative;">
-							<div class="card-img-top mb-0 p-1">
-								<img class="img-fluid" src="{{$question->photo}}" alt="" />
-							</div>
-								<h5 class="text-left ml-2 mt-2">{{$question->name}}</h5>
-								<h5 class="text-left ml-2 mt-2">{{$question->questiontype}}</h5>
-								<p class="bg-secondary rounded px-2 text-light"style="position: absolute;top:50%;left: 5px;">15Q</p>
-								<p class="px-2 bg-secondary rounded text-light" style="position: absolute; top: 50%;right: 3px;">11k plays</p>
-								{{-- @auth --}}
-									<a href="{{ route('detail',$question->id) }}" class="btn btn-primary btn-sm click" style="position: absolute;width: 100%;height: 100%;background: rgba(0,0,0,.04);border:none;" type="submit"></a>
-								{{-- @endauth--}}
-						</div>
+					<div class="col-12 col-md-12 mb-3">
+						<h3>Beginner</h3>
 					</div>
+					@foreach ($data as $question)
+						@if ($question->levelname=='Beginner')
+							<div class="col-12 col-md-3 mb-5">
+								<div class="card rounded p-0 pb-3" style="position: relative;">
+									<div class="card-img-top mb-0 p-1">
+										<img class="img-fluid" src="{{$question->photo}}" alt="" />
+									</div>
+										<h5 class="text-left ml-2 mt-2">{{$question->name}}</h5>
+										<h5 class="text-left ml-2 mt-2">{{$question->questiontype}}</h5>
+										{{-- <h5 class="text-left ml-2 mt-2">{{$question->levelname}}</h5> --}}
+										<p class="bg-secondary rounded px-2 text-light"style="position: absolute;top:54%;left: 5px;">15Q</p>
+										<p class="px-2 bg-secondary rounded text-light" style="position: absolute; top: 54%;right: 3px;">11k plays</p>
+										{{-- @auth --}}
+											<a href="{{ route('detail',$question->id) }}" class="btn btn-primary btn-sm click" style="position: absolute;width: 100%;height: 100%;background: rgba(0,0,0,.04);border:none;" type="submit"></a>
+										{{-- @endauth--}}
+								</div>
+							</div>							
+						@endif	
+					@endforeach
+					<div class="col-12 col-md-12 mb-3">
+						<h3>Intermediate</h3>
+					</div>
+					@foreach ($data as $question)
+						@if ($question->levelname=='Intermediate')
+							<div class="col-12 col-md-3 mb-5">
+								<div class="card rounded p-0 pb-3" style="position: relative;">
+									<div class="card-img-top mb-0 p-1">
+										<img class="img-fluid" src="{{$question->photo}}" alt="" />
+									</div>
+										<h5 class="text-left ml-2 mt-2">{{$question->name}}</h5>
+										<h5 class="text-left ml-2 mt-2">{{$question->questiontype}}</h5>
+										{{-- <h5 class="text-left ml-2 mt-2">{{$question->levelname}}</h5> --}}
+										<p class="bg-secondary rounded px-2 text-light"style="position: absolute;top:54%;left: 5px;">15Q</p>
+										<p class="px-2 bg-secondary rounded text-light" style="position: absolute; top: 54%;right: 3px;">11k plays</p>
+										{{-- @auth --}}
+											<a href="{{ route('detail',$question->id) }}" class="btn btn-primary btn-sm click" style="position: absolute;width: 100%;height: 100%;background: rgba(0,0,0,.04);border:none;" type="submit"></a>
+										{{-- @endauth--}}
+								</div>
+							</div>							
+						@endif	
 					@endforeach
 				</div>
 			</div>

@@ -1,7 +1,18 @@
-@extends('layouts.app')
-
+@extends('frontendtemplate')
+@section('style')
+<style type="text/css">
+    .home_banner_area{
+        display: none;
+    }
+    .home_banner_area{
+    display: none;
+    }
+    .hi{
+    display: none;
+    }
+</style>
 @section('content')
-<div class="container">
+<div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
