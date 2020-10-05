@@ -470,6 +470,6 @@
     <script src="{{asset('backendtemplate/b/vendor/jquery.cookie/jquery.cookie.js')}}"> </script>
     <script src="{{asset('backendtemplate/b/vendor/chart.js/Chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-    <script src="js/front.js"></script>
+    <script src=""{{ asset('backendtemplate/b/js/front.js') }}"></script>
   </body>
 </html>

@@ -41,6 +41,7 @@
 	 						<th>No</th>
 	 						<th>Mark</th>
 	 						<td>Total Number of Questions</td>
+	 						<td>Topic Name</td>
 	 						<th>Date</th>
 	 					</tr>
 	 						@php
@@ -51,6 +52,15 @@
 	 							<td>{{$count++}}</td>
 	 							<td>{{$user->mark}}</td>
 	 							<td>{{$user->count}}</td>
+	 							@foreach ($datas as $data)
+	 								@if($data->multitime == $user->created_at)
+
+	 								<td>{{$data->name}}</td>
+	 								@php
+	 									break;
+	 								@endphp
+	 								@endif
+	 							@endforeach
 	 							<td>{{$user->created_at}}</td>
 	 						</tr>
 	 						@endforeach
@@ -64,6 +74,7 @@
 	 						<th>No</th>
 	 						<th>Mark</th>
 	 						<td>Total Number of Questions</td>
+	 						<td>Topic Name</td>
 	 						<th>Date</th>
 	 					</tr>
 	 						@php
@@ -74,6 +85,15 @@
 	 							<td>{{$count++}}</td>
 	 							<td>{{$user->mark}}</td>
 	 							<td>{{$user->count}}</td>
+	 							@foreach ($tfdatas as $data)
+	 								@if($data->truetime == $user->created_at)
+
+	 								<td>{{$data->name}}</td>
+	 								@php
+	 									break;
+	 								@endphp
+	 								@endif
+	 							@endforeach
 	 							<td>{{$user->created_at}}</td>
 	 						</tr>
 	 						@endforeach

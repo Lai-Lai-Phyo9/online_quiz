@@ -77,10 +77,21 @@ class FrontendController extends Controller
                      ->select(DB::raw('sum(mark) as mark,count(mark) as count,created_at'))
                      ->where('user_id', '=', Auth::id())
                      ->groupBy('created_at')
-                     ->get();    
-   
-
-        // dd($users);
-      return view('frontend.show',compact('users','tfusers'));
+                     ->get();   
+        // dd($users); 
+        $datas = DB::table('multi_user')
+             ->join('multi_questions','multi_questions.id','=','multi_user.multi_question_id')
+             ->join('questions','questions.id','=','multi_questions.question_id')
+             ->join('topics','topics.id','=','questions.topic_id')
+             ->select('topics.name','multi_user.created_at as multitime')
+             ->get();
+        $tfdatas = DB::table('true_user')
+             ->join('true_false_questions','true_false_questions.id','=','true_user.true_false_question_id')
+             ->join('questions','questions.id','=','true_false_questions.question_id')
+             ->join('topics','topics.id','=','questions.topic_id')
+             ->select('topics.name','true_user.created_at as truetime')
+             ->get();
+        // dd($tfdatas);
+      return view('frontend.show',compact('users','tfusers','datas','tfdatas'));
   }
 }

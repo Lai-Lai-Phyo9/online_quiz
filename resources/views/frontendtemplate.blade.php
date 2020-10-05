@@ -9,7 +9,7 @@
     />
     <meta name="csrf-token" content="{{csrf_token()}}">
     <link rel="icon" href="{{asset('frontendtemplate/img/favicon.png')}}" type="image/png" />
-  <title>Online Quiz @yield('title')</title>
+    <title>Online Quiz @yield('title')</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('frontendtemplate/css/bootstrap.css')}}" />
     <link rel="stylesheet" href="{{asset('frontendtemplate/css/flaticon.css')}}" />

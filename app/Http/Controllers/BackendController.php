@@ -26,6 +26,7 @@ class BackendController extends Controller
              ->join('roles','roles.id','=','model.role_id')
              ->select('model.*')
              ->get();
+             
         foreach ($data as $haha) {
             if($haha->role_id == 9){
                 $parti++;

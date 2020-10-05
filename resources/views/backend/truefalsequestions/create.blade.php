@@ -29,7 +29,7 @@
 				<select name="question" class="form-control">
 					<optgroup label="Choose QuestionType">
 						@foreach($questions as $question)
-						<option value="{{$question->id}}">{{$question->questiontype}}</option>
+						<option value="{{$question->id}}">{{$question->id}}</option>
 						@endforeach
 					</optgroup>
 				</select>
