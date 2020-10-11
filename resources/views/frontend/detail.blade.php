@@ -29,7 +29,12 @@
 					$count=0;
 				@endphp
 				{{-- true false --}}
+					@foreach ($random as $randno)
+					@php
+						// echo $randno;
+					@endphp
 					@foreach ($detail as $row)
+					@if ($randno == $row->id)
 						<div class="col-12 bg-light shadow mb-2 p-3 pb-4">
 							<h2 class="text-success my-3 text-center mb-4">Question 
 								<span>{{$i++}}</span>
@@ -60,6 +65,8 @@
 						@php
 							$count++;
 						@endphp
+						@endif
+					@endforeach
 					@endforeach
 
 				@elseif($questiontype=="short")
@@ -83,12 +90,17 @@
 							</div>
 						</div>
 					@endforeach
-
+					{{-- this is multipalequestion --}}
 				@else	
 					@php
 						$count=0;
 					@endphp
+					@foreach ($random as $randno)
+					@php
+						// echo $randno;
+					@endphp
 					@foreach ($detail as $row)
+						@if ($randno == $row->id)
 						<div class="col-12 bg-light shadow mb-2 p-3 pb-4">
 							<h2 class="text-success my-3 text-center mb-4">Question 
 								<span>{{$i++}}</span>
@@ -135,11 +147,14 @@
 						@php
 							$count++;
 						@endphp
+						@endif
+					@endforeach
 					@endforeach
 				@endif	
 			</div>
 			<button id="savebtn" class="btn btn-lg btn-success">Check Me</button>
 		</div>
+		{{-- Show Result and Question --}}
 		<div class="container bg-light  shadow" style="position: fixed;width: 600px; height: 500px;top: 26%;left: 30%;z-index: 3;" id="showme">
 			<div class="container" style="position: relative;height: 600px;width: 400px;">
 				<div class="d-flex pt-5">
@@ -158,12 +173,10 @@
 	<script type="text/javascript">
 		$(document).ready(function($) {
 			let total = 0;
-			haha = $('#showme');
+			haha = $('#showme');//show result and question
 			haha.hide();
-			// alert('ok');
-			// $('#demo').hide();
-				let rightAnswer = 0;
-				var allq=0;
+			let rightAnswer = 0;
+			var allq=0;
 			$('.test').click(function(event) {
 				// alert('ok');				
 				var userid = $('#userid').data('id');
@@ -203,23 +216,27 @@
 	       		localStorage.setItem('quizdata',JSON.stringify(qArr));			
 	     	});
 	     	
-	     	// save 
+	     	// save in Network (storeanswer)
 			$('#savebtn').click(function(event) {
-				// alert("message?: DOMString");
+
 				let qStr = localStorage.getItem('quizdata');
+
 				$.ajaxSetup({ 
 					headers: {'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')}
 
 				});
+				
 				$.post('/storeanswer',{data:qStr},function(response){
+					// alert(response);
 
 				});
+
 				let qarr = JSON.parse(qStr);
 				$.each(qarr,function(i,v){
 					if(v.answerid==v.userinput){
 						total++;
 						allq++;
-						// alert("message?: DOMString");
+			
 					}else{
 						allq++;
 					}
@@ -232,12 +249,11 @@
 				total=0;
         		localStorage.clear();		
 			});
+			//answer radio check clear
 			$('#hideme').click(function(event) {
 				haha.hide();
 				location.reload();
-
 			});
 		});
-
 	</script>
 @endsection

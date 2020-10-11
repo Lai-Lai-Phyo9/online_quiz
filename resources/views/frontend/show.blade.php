@@ -29,7 +29,6 @@
 		<div class="titlerecent" style=" position: absolute;right: 10px; top: 15px;">
 			<h3 class="t">Your Recent Scores</h3>
 		</div>
-
 	</div>
  	<div class="container mb-5">
  		<div class="row">

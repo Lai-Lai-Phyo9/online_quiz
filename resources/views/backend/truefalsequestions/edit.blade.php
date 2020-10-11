@@ -1,0 +1,48 @@
+@extends('btemplate')
+@section('title','TrueFalseQuestions')
+@section('content')
+<div class="container shadow p-4 mt-5">
+	<h2>TrueFalseQuestion Create</h2>
+	<form method="post" action="{{ route('truefalsequestions.update',$truefalsequestion->id) }}" enctype="multipart/form-data">
+		@csrf
+		@method('PUT')
+		<div class="form-group row">
+			<label for="inputName" class="col-sm-2 col-form-label">Name</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="inputName" name="name" value="{{$truefalsequestion->name}}">
+			</div>
+		</div>
+		<div class="form-group row">
+			<label for="inputPhoto" class="col-sm-2 col-form-label">Photo</label>
+			<div class="col-sm-10">
+				<input type="file" class="form-control" id="inputPhoto" name="photo">
+				<img src="{{ asset($truefalsequestion->photo) }}" width="100" height="100">
+				<input type="hidden" name="old_photo" value="{{$truefalsequestion->photo}}">
+			</div>
+		</div>
+		<div class="form-group row">
+			<label for="inputName" class="col-sm-2 col-form-label">Answer</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="inputName" name="answer" value="{{$truefalsequestion->answer}}">
+			</div>
+		</div>		
+		<div class="form-group row">
+			<label for="inputLevel" class="col-sm-2 col-form-label">Question</label>
+			<div class="col-sm-10">
+				<select name="question" class="form-control">
+					<optgroup label="Choose QuestionType">
+						@foreach($questions as $question)
+						<option value="{{$question->id}}">{{$question->id}}</option>
+						@endforeach
+					</optgroup>
+				</select>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-sm-10">
+				<input name="btnsubmit"type="submit" class="btn btn-primary" value="Save">
+			</div>
+		</div>
+	</form>
+</div>
+@endsection

@@ -47,7 +47,7 @@ class LevelController extends Controller
         $level->save();
 
         //Redirect
-        return redirect()->route('levels.index');
+        return redirect()->route('backend.levels.index');
 
     }
 

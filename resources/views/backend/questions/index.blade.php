@@ -13,6 +13,7 @@
 	         <thead>
 					<tr>
 						<th scope="col">No</th>
+						<th scope="col">Topic Name</th>
 						<th scope="col">QuestionType</th>
 						<th colspan="2">Actions</th>
 					</tr>
@@ -21,6 +22,7 @@
 					@foreach ($questions as $question)
 					<tr>
 						<td>{{$question->id}}</td>
+						<td>{{$question->topic->name}}</td>
 						<td>{{$question->questiontype}}</td>
 						<td class="text-center">
 							<a href="{{ route('questions.show',$question->id) }}" class="btn btn-secondary mb-2" style="width: 120px;"><i class="far fa-eye"></i></i>Detail</a>

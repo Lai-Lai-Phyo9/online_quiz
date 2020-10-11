@@ -82,10 +82,14 @@ class RegisterController extends Controller
         }
         else if($roles[0] =='quiz maker')
         {
+            $this->redirectTo='/subjects';
+        }
+        else if($roles[0] =='admin')
+        {
             $this->redirectTo='/dashboard';
         }
         return $user;
-        return $this->registered($request, $user)?: redirect($this->redirectPath('/dashboard'));
+        // return $this->registered($request, $user)?: redirect($this->redirectPath('/dashboard'));
         // return redirect('/login');  
     }
 }

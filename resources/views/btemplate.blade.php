@@ -85,7 +85,7 @@
             </form>
             </div>
           </li>
-{{--           <li class="nav-item dropdown ml-auto">
+      {{--      <li class="nav-item dropdown ml-auto">
             <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {{Auth::user()->name}}
             </a>
@@ -133,7 +133,7 @@
           {{-- <li class="sidebar-list-item"><a href="{{ route('login') }}" class="sidebar-link text-muted"><i class="o-exit-1 mr-3 text-warning"></i><span>Login</span></a></li> --}}
         </ul>
         {{-- <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">EXTRAS</div> --}}
-{{--         <ul class="sidebar-menu list-unstyled">
+      {{--    <ul class="sidebar-menu list-unstyled">
               <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-database-1 mr-3 text-info text-gray"></i><span>Demo</span></a></li>
               <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-imac-screen-1 mr-3 text-danger text-gray"></i><span>Demo</span></a></li>
               <li class="sidebar-list-item"><a href="#" class="sidebar-link text-muted"><i class="o-paperwork-1 mr-3 text-gray"></i><span>Demo</span></a></li>
@@ -261,7 +261,7 @@
                     <p><small>This is text in a <code>small</code> wrapper. <abbr title="No Big Deal">NBD</abbr>, right?</small></p>
                     <hr>
                     <address><strong>Twitter, Inc.</strong><br> 795 Folsom Ave, Suite 600<br> San Francisco, CA 94107<br><abbr title="Phone">P:</abbr> (123) 456-7890</address>
-                    <address class="col-6"><strong>Full Name</strong><br><a href="mailto:#">first.last@example.com</a></address>
+                    <address class="col-6"><strong>Full Name</strong><br><a href="mailto:#">first.last.com</a></address>
                     <hr>
                     <blockquote>Here's what a blockquote looks like in Bootstrap.<small>Use <code>small</code> to identify the source.</small></blockquote>
                     <hr>
@@ -463,13 +463,16 @@
         </footer>
       </div>
     </div>
+
+    <!-- SweetAlert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- JavaScript files-->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="{{asset('backendtemplate/b/js/front.js') }}"></script>
     <script src="{{asset('backendtemplate/b/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('backendtemplate/b/vendor/popper.js/umd/popper.min.js')}}"> </script>
     <script src="{{asset('backendtemplate/b/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('backendtemplate/b/vendor/jquery.cookie/jquery.cookie.js')}}"> </script>
     <script src="{{asset('backendtemplate/b/vendor/chart.js/Chart.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-    <script src=""{{ asset('backendtemplate/b/js/front.js') }}"></script>
   </body>
 </html>

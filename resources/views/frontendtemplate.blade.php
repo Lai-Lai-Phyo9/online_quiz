@@ -8,6 +8,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="csrf-token" content="{{csrf_token()}}">
+    
     <link rel="icon" href="{{asset('frontendtemplate/img/favicon.png')}}" type="image/png" />
     <title>Online Quiz @yield('title')</title>
     <!-- Bootstrap CSS -->
@@ -70,10 +71,10 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="{{ route('home') }}">Home</a>
                 </li>
-{{--                 <li class="nav-item">
+    {{--                 <li class="nav-item">
                   <a class="nav-link" href="{{ route('detail',$topic->id) }}">About</a>
                 </li> --}}
-{{--                 <li class="nav-item submenu dropdown">
+    {{--                 <li class="nav-item submenu dropdown">
                   <a
                     href="#"
                     class="nav-link dropdown-toggle"
@@ -139,7 +140,7 @@
                   </div>
                 </li>
               @endif
-{{--                 <li class="nav-item">
+            {{--     <li class="nav-item">
                   <a href="#" class="nav-link search" id="search">
                     <i class="ti-search"></i>
                   </a>
@@ -437,7 +438,7 @@
           <div class="col-lg-6 col-md-6">
             <div class="single_event position-relative">
               <div class="event_thumb">
-                <img src="img/event/e1.jpg" alt="" />
+                <img src="{{asset('frontendtemplate/img/event/e1.jpg')}}" alt="" />
               </div>
               <div class="event_details">
                 <div class="d-flex mb-4">
@@ -463,7 +464,7 @@
           <div class="col-lg-6 col-md-6">
             <div class="single_event position-relative">
               <div class="event_thumb">
-                <img src="img/event/e2.jpg" alt="" />
+                <img src="{{asset('frontendtemplate/img/event/e2.jpg')}}" alt="" />
               </div>
               <div class="event_details">
                 <div class="d-flex mb-4">
@@ -490,7 +491,7 @@
           <div class="col-lg-12">
             <div class="text-center pt-lg-5 pt-3">
               <a href="#" class="event-link">
-                View All Event <img src="img/next.png" alt="" />
+                View All Event <img src="{{asset('frontendtemplate/img/next.png')}}" alt="" />
               </a>
             </div>
           </div>
@@ -703,7 +704,7 @@
           <p class="col-lg-8 col-sm-12 footer-text m-0 text-white">
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </p>
           <div class="col-lg-4 col-sm-12 footer-social">
             <a href="#"><i class="ti-facebook"></i></a>
@@ -731,7 +732,7 @@
     <script src="{{asset('frontendtemplate/js/gmaps.min.js')}}"></script>
     <script src="{{asset('frontendtemplate/js/theme.js')}}"></script>
     <script type="text/javascript" src="{{ asset('frontendtemplate/js/custom.js') }}">  
-</script>
+    </script>
     @yield('script')
   </body>
 </html>

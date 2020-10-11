@@ -273,7 +273,7 @@
             <div class="card px-5 py-4">
               <h2 class="mb-0 d-flex align-items-center"><span>86.4</span><span class="dot bg-red d-inline-block ml-3"></span></h2><span class="text-muted">Server time</span>
               <div class="chart-holder">
-                <canvas id="lineChart3" style="max-height: 7rem !important;" class="w-100">      </canvas>
+                <canvas id="lineChart3" style="max-height: 7rem !important;" class="w-100">    </canvas>
               </div>
             </div>
           </div>
@@ -283,7 +283,7 @@
         <div class="row">
           <div class="col-lg-12"><a href="#" class="message card px-5 py-3 mb-4 bg-hover-gradient-primary no-anchor-style">
               <div class="row">
-                <div class="col-lg-3 d-flex align-items-center flex-column flex-lg-row text-center text-md-left"><strong class="h5 mb-0">24<sup class="smaller text-gray font-weight-normal">Apr</sup></strong><img src="img/avatar-1.jpg" alt="..." style="max-width: 3rem" class="rounded-circle mx-3 my-2 my-lg-0">
+                <div class="col-lg-3 d-flex align-items-center flex-column flex-lg-row text-center text-md-left"><strong class="h5 mb-0">24<sup class="smaller text-gray font-weight-normal">Apr</sup></strong><img src="{{asset('backendtemplate/b/img/avatar-1.jpg')}}" alt="..." style="max-width: 3rem" class="rounded-circle mx-3 my-2 my-lg-0">
                   <h6 class="mb-0">Jason Maxwell</h6>
                 </div>
                 <div class="col-lg-9 d-flex align-items-center flex-column flex-lg-row text-center text-md-left">
@@ -293,7 +293,7 @@
               </div></a></div>
           <div class="col-lg-12"><a href="#" class="message card px-5 py-3 mb-4 bg-hover-gradient-primary no-anchor-style">
               <div class="row">
-                <div class="col-lg-3 d-flex align-items-center flex-column flex-lg-row text-center text-md-left"><strong class="h5 mb-0">24<sup class="smaller text-gray font-weight-normal">Nov</sup></strong><img src="img/avatar-2.jpg" alt="..." style="max-width: 3rem" class="rounded-circle mx-3 my-2 my-lg-0">
+                <div class="col-lg-3 d-flex align-items-center flex-column flex-lg-row text-center text-md-left"><strong class="h5 mb-0">24<sup class="smaller text-gray font-weight-normal">Nov</sup></strong><img src="{{asset('backendtemplate/b/img/avatar-2.jpg')}}" alt="..." style="max-width: 3rem" class="rounded-circle mx-3 my-2 my-lg-0">
                   <h6 class="mb-0">Sam Andy</h6>
                 </div>
                 <div class="col-lg-9 d-flex align-items-center flex-column flex-lg-row text-center text-md-left">
@@ -303,7 +303,7 @@
               </div></a></div>
           <div class="col-lg-12"><a href="#" class="message card px-5 py-3 mb-4 bg-hover-gradient-primary no-anchor-style">
               <div class="row">
-                <div class="col-lg-3 d-flex align-items-center flex-column flex-lg-row text-center text-md-left"><strong class="h5 mb-0">17<sup class="smaller text-gray font-weight-normal">Aug</sup></strong><img src="img/avatar-3.jpg" alt="..." style="max-width: 3rem" class="rounded-circle mx-3 my-2 my-lg-0">
+                <div class="col-lg-3 d-flex align-items-center flex-column flex-lg-row text-center text-md-left"><strong class="h5 mb-0">17<sup class="smaller text-gray font-weight-normal">Aug</sup></strong><img src="{{asset('backendtemplate/b/img/avatar-3.jpg')}}" alt="..." style="max-width: 3rem" class="rounded-circle mx-3 my-2 my-lg-0">
                   <h6 class="mb-0">Margret Peter</h6>
                 </div>
                 <div class="col-lg-9 d-flex align-items-center flex-column flex-lg-row text-center text-md-left">
@@ -313,7 +313,7 @@
               </div></a></div>
           <div class="col-lg-12"><a href="#" class="message card px-5 py-3 mb-4 bg-hover-gradient-primary no-anchor-style">
               <div class="row">
-                <div class="col-lg-3 d-flex align-items-center flex-column flex-lg-row text-center text-md-left"><strong class="h5 mb-0">15<sup class="smaller text-gray font-weight-normal">Sep</sup></strong><img src="img/avatar-4.jpg" alt="..." style="max-width: 3rem" class="rounded-circle mx-3 my-2 my-lg-0">
+                <div class="col-lg-3 d-flex align-items-center flex-column flex-lg-row text-center text-md-left"><strong class="h5 mb-0">15<sup class="smaller text-gray font-weight-normal">Sep</sup></strong><img src="{{asset('backendtemplate/b/img/avatar-4.jpg')}}" alt="..." style="max-width: 3rem" class="rounded-circle mx-3 my-2 my-lg-0">
                   <h6 class="mb-0">Jason Doe</h6>
                 </div>
                 <div class="col-lg-9 d-flex align-items-center flex-column flex-lg-row text-center text-md-left">

@@ -85,7 +85,10 @@ class TrueFalseQuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $questions =Question::all();
+        $truefalsequestion=TrueFalseQuestion::find($id);
+        // dd($subcategory);
+        return view ('backend.truefalsequestions.edit',compact('truefalsequestion','questions'));
     }
 
     /**
@@ -97,7 +100,29 @@ class TrueFalseQuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //if upload new image, delete old image
+        $myfile=$request->old_photo;
+        if($request->hasfile('photo'))
+        {
+            $imageName=time().'.'.$request->photo->extension();
+            $name=$request->old_photo;
+
+            if(file_exists(public_path($name))){
+                unlink(public_path($name));
+                $request->photo->move(public_path('backendtemplate/truefalseimg'),$imageName);
+                $myfile='backendtemplate/truefalseimg/'.$imageName;
+            }
+        }
+        //Update Data
+        $truefalsequestion=TrueFalseQuestion::find($id);
+        $truefalsequestion->name=$request->name;
+        $truefalsequestion->photo=$myfile;
+        $truefalsequestion->answer = $request->answer;
+        $truefalsequestion->question_id = $request->question;
+        $truefalsequestion->save();
+
+        //Redirect
+        return redirect()->route('truefalsequestions.index'); 
     }
 
     /**
